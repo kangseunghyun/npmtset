@@ -1,8 +1,6 @@
 ---
 general:
   buildTool: "npm"
-service:
-  buildToolVersion: "N20"
 stages:
   Build:
     mavenExecuteStaticCodeChecks: false
