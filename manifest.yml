@@ -4,7 +4,22 @@ applications:
   random-route: true
   path: myapp
   memory: 128M
-  buildpacks:
+  buildpacks: 
   - nodejs_buildpack
   services:
-  - trust
+  - nodeuaa
+- name: web
+  random-route: true
+  path: web
+  memory: 128M
+  env:
+    destinations: >
+      [
+        {
+          "name":"myapp",
+          "url":"https://myapp-noisy-lynx-zf.cfapps.us10-001.hana.ondemand.com",
+          "forwardAuthToken": true
+        }
+      ]
+  services:
+  - nodeuaa
